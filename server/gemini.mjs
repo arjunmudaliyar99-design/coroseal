@@ -1,16 +1,41 @@
 import { createServer } from 'node:http'
+import { createReadStream, existsSync, readFileSync, statSync } from 'node:fs'
+import { extname, join, normalize, resolve } from 'node:path'
 
-const port = Number(process.env.GEMINI_PROXY_PORT || 8787)
+if (existsSync('.env')) {
+  for (const line of readFileSync('.env', 'utf8').split(/\r?\n/)) {
+    const match = line.match(/^\s*([A-Z_][A-Z0-9_]*)=(.*)\s*$/i)
+    if (match && !process.env[match[1]]) process.env[match[1]] = match[2].replace(/^(['"])(.*)\1$/, '$2')
+  }
+}
+
+const port = Number(process.env.PORT || process.env.GEMINI_PROXY_PORT || 8787)
 const model = process.env.GEMINI_MODEL || 'gemini-3.6-flash'
+const distDirectory = resolve('dist')
+const contentTypes = { '.css': 'text/css', '.html': 'text/html', '.js': 'text/javascript', '.json': 'application/json', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.svg': 'image/svg+xml', '.webp': 'image/webp', '.pdf': 'application/pdf' }
 
 function send(response, status, body) {
-  response.writeHead(status, { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': 'http://localhost:5173' })
+  response.writeHead(status, { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': process.env.NODE_ENV === 'production' ? 'null' : 'http://localhost:5173' })
   response.end(JSON.stringify(body))
+}
+
+function serveStatic(request, response) {
+  const requestedPath = decodeURIComponent(new URL(request.url, 'http://localhost').pathname)
+  const relativePath = requestedPath === '/' ? 'index.html' : requestedPath.replace(/^\/+/, '')
+  const filePath = resolve(distDirectory, normalize(relativePath))
+  const safePath = filePath.startsWith(distDirectory) ? filePath : distDirectory
+  const target = existsSync(safePath) && statSync(safePath).isFile() ? safePath : join(distDirectory, 'index.html')
+  if (!existsSync(target)) return send(response, 404, { error: 'Build output not found. Run npm run build first.' })
+  response.writeHead(200, { 'Content-Type': contentTypes[extname(target)] || 'application/octet-stream' })
+  createReadStream(target).pipe(response)
 }
 
 const server = createServer(async (request, response) => {
   if (request.method === 'OPTIONS') return send(response, 204, {})
-  if (request.method !== 'POST' || request.url !== '/api/chat') return send(response, 404, { error: 'Not found' })
+  if (request.method !== 'POST' || new URL(request.url, 'http://localhost').pathname !== '/api/chat') {
+    if (request.method === 'GET') return serveStatic(request, response)
+    return send(response, 404, { error: 'Not found' })
+  }
   if (!process.env.GEMINI_API_KEY) return send(response, 503, { error: 'Gemini is not configured. Use the local assistant or add GEMINI_API_KEY to the server environment.' })
 
   let raw = ''
@@ -27,4 +52,4 @@ const server = createServer(async (request, response) => {
   }
 })
 
-server.listen(port, () => console.log(`Gemini proxy listening on http://localhost:${port}`))
+server.listen(port, () => console.log(`Coroseal server listening on http://localhost:${port}`))

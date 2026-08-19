@@ -8,6 +8,7 @@ const quickPrompts = [
 
 function localReply(value) {
   const text = value.toLowerCase()
+  if (text.includes('company') || text.includes('coroseal') || text.includes('about you') || text.includes('summar')) return 'Coroseal is an Indian manufacturer and service provider specialising in fibre reinforced plastic (FRP) systems. Established in 1983, the company designs and fabricates tanks, reactors, piping, fume exhaust systems, and related site services for chemical, water treatment, metal extraction, mining, and power industries.'
   if (text.includes('tank') || text.includes('chemical')) return 'For corrosive chemical storage, we can help scope an FRP or dual-laminate tank. Useful details are chemical and concentration, temperature, capacity, fittings, and whether site assembly is needed.'
   if (text.includes('fume') || text.includes('scrubber')) return 'For hazardous gas streams, Coroseal can scope scrubbers, blowers, ducts, stacks, hoods, and packed-bed internals. Share the gas, flow rate, temperature, and required outlet condition.'
   if (text.includes('pipe') || text.includes('fitting')) return 'For FRP piping, please share diameter, pressure, temperature, chemical service, line length, and your preferred joint or flange arrangement.'

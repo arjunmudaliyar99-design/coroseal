@@ -4,9 +4,10 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "api": "node --env-file=.env server/gemini.mjs",
+    "dev": "node server/dev.mjs",
+    "api": "node server/gemini.mjs",
     "build": "vite build",
+    "start": "node server/gemini.mjs",
     "preview": "vite preview"
   },
   "dependencies": {
