@@ -14,7 +14,9 @@
 .nav-list li a:focus-visible{outline:3px solid var(--color-accent);outline-offset:3px;border-radius:6px}
 .nav-list li a.btn-primary,
 .nav-list li a.btn-primary:hover{color:#fff;background:var(--color-primary);border-color:transparent}
-.nav-list li a.btn-primary:hover{background:var(--color-primary-600);transform:translateY(-2px)}
+.nav-list li a.btn-primary{height:44px;padding:0 17px;border-radius:6px;box-shadow:0 6px 14px rgba(1,48,94,.18);font-size:13px;letter-spacing:.2px;transition:background .2s ease,transform .2s ease,box-shadow .2s ease}
+.nav-list li a.btn-primary::after{content:' →';color:var(--color-accent);margin-left:6px}
+.nav-list li a.btn-primary:hover{background:var(--color-primary-600);transform:translateY(-2px);box-shadow:0 9px 18px rgba(1,48,94,.24)}
 
 /* Mobile */
 @media (max-width:900px){
@@ -29,7 +31,7 @@
   .nav-list li a{display:flex;padding:10px 12px;width:100%;border-radius:8px}
   .nav-list li a:hover{background:var(--color-surface)}
   .nav-list li a.btn-primary,
-  .nav-list li a.btn-primary:hover{justify-content:center;margin-top:8px;background:var(--color-accent);color:#fff}
+  .nav-list li a.btn-primary:hover{justify-content:center;margin-top:8px;background:var(--color-accent);color:#fff;box-shadow:none}
 }
 
 /* Small touch targets */
