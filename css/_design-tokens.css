@@ -1,0 +1,90 @@
+/* Design tokens for Coroseal prototype */
+:root{
+  /* Colors */
+  --color-primary: #01305E;
+  --color-primary-600: #225090;
+  --color-accent: #ED9241;
+  --color-muted: #292929;
+  --color-muted-2: #535353;
+  --color-bg: #ffffff;
+  --color-surface: #F7F7F7;
+  --color-border: #EAEAEA;
+  --color-success: #2E8A3A;
+  --color-warning: #F4B400;
+  --color-danger: #ED3237;
+
+  /* Typography */
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --type-xxl: 48px;
+  --type-xl: 36px;
+  --type-lg: 24px;
+  --type-md: 18px;
+  --type-sm: 16px;
+  --type-xs: 14px;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  /* Geometry */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* Elevation */
+  --elev-1: 0 1px 4px rgba(0,0,0,0.06);
+  --elev-2: 0 6px 18px rgba(0,0,0,0.12);
+  --elev-3: 0 18px 50px rgba(0,0,0,0.18);
+}
+
+/* Utility tokens */
+html{font-family:var(--font-body);font-size:16px;background:var(--color-bg);color:var(--color-muted);overflow-x:hidden}
+body{overflow-x:hidden}
+
+/* Buttons using tokens */
+.btn{display:inline-block;padding:10px 18px;border-radius:var(--radius-md);font-weight:600;cursor:pointer;transition:all .18s ease}
+.btn-primary{background:var(--color-primary);color:#fff;border:1px solid transparent;box-shadow:var(--elev-1)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:var(--elev-2)}
+.btn-secondary{background:transparent;color:var(--color-primary);border:1px solid var(--color-primary)}
+.btn-secondary:hover{background:var(--color-primary-600);color:#fff}
+
+/* Focus styles for keyboard users */
+a:focus,button:focus,.btn:focus{outline:none}
+:focus-visible{outline-offset:3px}
+a:focus-visible, .btn:focus-visible, button:focus-visible, .nav-toggle:focus-visible{
+  outline:3px solid var(--color-accent);
+  border-radius:6px;
+}
+
+/* Skip link */
+.skip-link{position:fixed;left:12px;top:12px;background:var(--color-primary);color:#fff;padding:8px 12px;border-radius:6px;z-index:999;transform:translateY(-120%);transition:transform .18s ease}
+.skip-link:focus{transform:translateY(0)}
+
+/* Layout helpers */
+.container{max-width:1100px;margin:0 auto;padding:0 var(--space-4)}
+.section{padding:var(--space-6) 0}
+
+/* Text */
+h1{font-family:var(--font-heading);font-size:var(--type-xl);line-height:1.05;color:var(--color-primary)}
+h2{font-family:var(--font-heading);font-size:var(--type-lg);color:var(--color-muted)}
+p{font-size:var(--type-sm);line-height:1.6;color:var(--color-muted-2)}
+
+/* Simple responsive helpers */
+@media (max-width:768px){:root{--type-xxl:36px;--type-xl:28px;--type-lg:20px}}
+
+/* Tighter container padding for small screens */
+@media (max-width:600px){
+  .container{padding:0 12px}
+  :root{--space-4:12px}
+}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
+}

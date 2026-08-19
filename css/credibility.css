@@ -1,0 +1,15 @@
+/* Credibility section - mobile-first */
+#credibility{padding:36px 0}
+.cred-grid{display:grid;grid-template-columns:1fr;gap:18px}
+.cred-item{background:var(--color-bg);padding:16px;border-radius:10px;box-shadow:var(--elev-1)}
+.cred-item h3{margin:0 0 8px;color:var(--color-primary);font-size:16px}
+.certs ul{margin:0;padding-left:18px;color:var(--color-muted-2);font-size:14px}
+.testimonials .quote{font-style:italic;margin:0 0 8px;color:var(--color-900)}
+.quote-meta{font-size:13px;color:var(--color-muted-2)}
+.client-logos{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.client-logos img{width:48%;max-width:120px;height:64px;object-fit:cover;border-radius:6px}
+
+@media(min-width:800px){
+  .cred-grid{grid-template-columns:1fr 1fr 1fr}
+  .client-logos img{width:100%;max-width:140px}
+}

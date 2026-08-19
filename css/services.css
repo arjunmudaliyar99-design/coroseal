@@ -1,0 +1,35 @@
+/* Services / Products grid - mobile-first */
+#services{padding-top:36px;padding-bottom:48px}
+.services-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:18px}
+.service-card{background:var(--color-bg);border-radius:10px;overflow:hidden;box-shadow:var(--elev-1);display:flex;flex-direction:column;min-height:360px}
+.service-card .img{height:180px;overflow:hidden}
+.service-card .img img{width:100%;height:100%;object-fit:cover;display:block}
+.service-card h3{font-size:18px;margin:12px 16px 6px;color:var(--color-primary)}
+.service-card h3 a{color:var(--color-primary);text-decoration:none}
+.service-card h3 a:hover{text-decoration:underline}
+.service-card{transition:transform .22s ease,box-shadow .22s ease}
+.service-card:hover{transform:translateY(-6px);box-shadow:var(--elev-2)}
+
+/* Make card content flow so CTAs/links remain visible at bottom */
+.service-card h3{margin-top:12px}
+.service-card p{margin-top:auto}
+.service-card a:focus-visible{outline:3px solid var(--color-accent);outline-offset:3px;border-radius:4px}
+.service-card p{margin:0 16px 16px;color:var(--color-muted-2);font-size:14px}
+
+/* Larger layouts */
+@media(min-width:700px){
+  .services-grid{grid-template-columns:repeat(2,1fr);gap:20px}
+}
+@media(min-width:1100px){
+  .services-grid{grid-template-columns:repeat(3,1fr)}
+}
+
+/* Reveal animation */
+.reveal{opacity:0;transform:translateY(12px);transition:all .6s cubic-bezier(.2,.9,.2,1)}
+.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:700px){
+  .service-card{min-height:auto}
+  .service-card .img{height:140px}
+  .service-card h3{font-size:16px}
+}

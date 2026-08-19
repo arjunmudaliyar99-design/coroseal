@@ -1,0 +1,194 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Coroseal — Prototype</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600|Roboto:300,400,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/_design-tokens.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/services.css">
+  <link rel="stylesheet" href="css/credibility.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <style>
+    /* Quick prototype layout */
+    body{margin:0}
+    header{background:#fff;border-bottom:1px solid var(--color-border);position:sticky;top:0;z-index:100}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    .logo{font-weight:700;color:var(--color-primary);font-family:var(--font-heading);font-size:20px}
+    nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0}
+    nav a{color:var(--color-muted);text-decoration:none;text-transform:uppercase;font-size:13px}
+    .hero{background:linear-gradient(180deg, var(--color-primary-600), var(--color-primary));color:#fff;padding:64px 0}
+    .hero-inner{display:flex;gap:40px;align-items:center}
+    .hero .copy{flex:1}
+    .hero h1{color:#fff;font-size:var(--type-xxl);margin:0 0 16px}
+    .hero p{color:rgba(255,255,255,0.9);font-size:18px}
+    .hero .visual{width:420px;max-width:40%}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:32px}
+    .card{background:var(--color-bg);padding:20px;border-radius:var(--radius-md);box-shadow:var(--elev-1)}
+    footer{background:#111;color:#fff;padding:30px 0}
+    @media(max-width:900px){.hero-inner{flex-direction:column}.cards{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">Coroseal</div>
+      <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation"><span class="hamburger"></span></button>
+      <nav class="nav-menu" role="navigation">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#services">Products</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#credibility">Projects</a></li>
+          <li><a class="btn btn-primary" href="#closing-cta">Contact Sales</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" role="banner" aria-label="Coroseal hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow" style="margin:0;color:var(--color-warning);font-weight:700;letter-spacing:1px">Industrial FRP Solutions</p>
+          <h1>Engineered FRP Systems — Reliable, Certified, Delivered On Time</h1>
+          <p class="lead">Design, fabrication and supply of custom fibre reinforced plastic equipment for chemical, water treatment and process industries.</p>
+          <div class="hero-ctas" style="margin-top:18px">
+            <a class="btn btn-primary" href="#closing-cta">Request a Quote</a>
+            <a class="btn btn-secondary" href="#services" style="margin-left:12px">View Products</a>
+          </div>
+
+          <ul class="hero-trust" aria-hidden="false" style="margin-top:22px;display:flex;gap:18px;align-items:center;padding:0;list-style:none">
+            <li style="font-size:14px;color:var(--color-muted-2)">ISO 9001:2015</li>
+            <li style="font-size:14px;color:var(--color-muted-2)">ISO 14001:2015</li>
+            <li style="font-size:14px;color:var(--color-muted-2)">Serving India & Global Markets</li>
+          </ul>
+        </div>
+
+        <div class="hero-visual" aria-hidden="false">
+          <div class="visual-frame">
+            <img src="img/slides/banner_01.jpg" alt="FRP products"/>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="credibility" class="section container">
+      <div class="cred-grid">
+        <div class="cred-item certs">
+          <h3>Certifications</h3>
+          <ul>
+            <li>ISO 9001: Quality Management</li>
+            <li>ISO 14001: Environmental Management</li>
+            <li>ISO 45001: Occupational Health & Safety</li>
+          </ul>
+        </div>
+
+        <div class="cred-item testimonials">
+          <h3>Testimonials</h3>
+          <blockquote class="quote">“Coroseal delivered on a tight schedule with exceptional build quality — highly recommended.”</blockquote>
+          <div class="quote-meta">— Procurement Manager, Large Chemical Co.</div>
+        </div>
+
+        <div class="cred-item clients">
+          <h3>Selected Clients</h3>
+          <div class="client-logos">
+            <img src="img/project/storage_tanks/20m3_saturated_tank_01.jpg" alt="Industrial storage tank project">
+            <img src="img/project/storage_tanks/frp_tanks_recovered_brian_tank_01.jpg" alt="FRP vessel project">
+            <img src="img/project/fume_exhaust_system/3500m3hr_01.jpg" alt="Fume exhaust project">
+            <img src="img/project/pipes_fittings/frp_piper_and_fitting_01.jpg" alt="FRP pipes and fittings project">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container">
+      <h2>Why Coroseal</h2>
+      <p>Decades of manufacturing excellence, ISO-certified processes, and on-time delivery for large industrial projects.</p>
+    </section>
+
+    <section id="services" class="section container">
+      <h2>Our Products & Services</h2>
+      <p>We deliver engineered FRP systems across chemical, water treatment and process industries.</p>
+
+      <div class="services-grid">
+          <article class="service-card reveal">
+            <div class="img"><img src="img/project/storage_tanks/20m3_recirculaatiuon_tank_01.jpg" alt="Mixer Settlers"></div>
+            <h3><a href="products/mixer-settlers.html">Mixer Settlers</a></h3>
+          <p>High-efficiency liquid-liquid extraction equipment for metal extraction and solvent recovery.</p>
+        </article>
+
+        <article class="service-card reveal">
+           <div class="img"><img src="img/project/fume_exhaust_system/3500m3hr_01.jpg" alt="Fume Exhaust System"></div>
+           <h3><a href="products/fume-exhaust-system.html">Fume Exhaust Systems</a></h3>
+          <p>Custom scrubbers, blowers and ducting to safely remove hazardous fumes and comply with regulations.</p>
+        </article>
+
+        <article class="service-card reveal">
+           <div class="img"><img src="img/project/storage_tanks/20m3_saturated_tank_01.jpg" alt="Storage Tanks"></div>
+           <h3><a href="products/storage-tanks.html">Storage Tanks</a></h3>
+          <p>FRP & dual-laminate storage tanks up to 150 m3; custom shapes and on-site assembly available.</p>
+        </article>
+
+        <article class="service-card reveal">
+           <div class="img"><img src="img/project/pipes_fittings/frp_piper_and_fitting_01.jpg" alt="Pipes & Fittings"></div>
+           <h3><a href="products/pipes-and-fittings.html">Pipes & Fittings</a></h3>
+          <p>Corrosion-resistant FRP piping, fittings and dual-laminate solutions up to large diameters.</p>
+        </article>
+
+        <article class="service-card reveal">
+           <div class="img"><img src="img/project/storage_tanks/frp_tanks_recovered_brian_tank_01.jpg" alt="Reactor Vessels"></div>
+           <h3><a href="products/reactor-vessels.html">Reactor Vessels</a></h3>
+          <p>Engineered reactors with agitator assemblies, dish/conical bottoms and full process integration.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+  <section id="closing-cta" class="section">
+    <div class="container cta-card">
+      <div class="cta-copy">
+        <h2>Ready to discuss your next FRP project?</h2>
+        <p>Tell us about your requirements and we'll provide a technical proposal and estimate.</p>
+      </div>
+      <div class="cta-actions">
+        <a class="btn btn-primary" href="mailto:salessupport@coroseal.com?subject=FRP%20project%20enquiry">Request a Quote</a>
+        <a class="btn btn-secondary" href="mailto:salessupport@coroseal.com">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col contact">
+        <h4>Contact</h4>
+        <p>Enquiries: <a href="mailto:salessupport@coroseal.com">salessupport@coroseal.com</a></p>
+        <p>Phone: <a href="tel:+912227401627">+91 22 2740 1627</a></p>
+        <p><a href="#closing-cta">View enquiry details</a></p>
+      </div>
+
+      <div class="footer-col links">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="products/storage-tanks.html">Storage Tanks</a></li>
+          <li><a href="products/fume-exhaust-system.html">Fume Exhaust Systems</a></li>
+          <li><a href="products/pipes-and-fittings.html">Pipes & Fittings</a></li>
+          <li><a href="products/reactor-vessels.html">Reactor Vessels</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col map">
+        <h4>Our Location</h4>
+          <img src="img/resources/footer_map_2.jpg" alt="Map showing Coroseal location" />
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <div>© Coroseal Chemical Equipments Pvt. Ltd. — All rights reserved.</div>
+      <div class="small-links"><a href="#main">Privacy</a> • <a href="index.html">Home</a></div>
+    </div>
+  </footer>
+  <script src="js/navbar.js"></script>
+</body>
+</html>
