@@ -11,12 +11,13 @@
   <link rel="stylesheet" href="css/services.css">
   <link rel="stylesheet" href="css/credibility.css">
   <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/pages.css">
   <style>
     /* Quick prototype layout */
     body{margin:0}
     header{background:#fff;border-bottom:1px solid var(--color-border);position:sticky;top:0;z-index:100}
     .header-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
-    .logo{font-weight:700;color:var(--color-primary);font-family:var(--font-heading);font-size:20px}
+    .logo img{display:block;width:174px;height:auto}
     nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0}
     nav a{color:var(--color-muted);text-decoration:none;text-transform:uppercase;font-size:13px}
     .hero{background:linear-gradient(180deg, var(--color-primary-600), var(--color-primary));color:#fff;padding:64px 0}
@@ -35,15 +36,17 @@
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <div class="container header-inner">
-      <div class="logo">Coroseal</div>
+      <a class="logo" href="index.html" aria-label="Coroseal home"><img src="img/logo.png" alt="Coroseal Chemical Equipments Pvt Ltd"></a>
       <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation"><span class="hamburger"></span></button>
       <nav class="nav-menu" role="navigation">
         <ul class="nav-list">
           <li><a href="index.html">Home</a></li>
-          <li><a href="#services">Products</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#credibility">Projects</a></li>
-          <li><a class="btn btn-primary" href="#closing-cta">Contact Sales</a></li>
+          <li><a href="about-us.html">About Us</a></li>
+          <li><a href="products/storage-tanks.html">Products</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="download.html">Downloads</a></li>
+          <li><a class="btn btn-primary" href="contact-us.html">Contact Sales</a></li>
         </ul>
       </nav>
     </div>
@@ -73,6 +76,37 @@
             <img src="img/slides/banner_01.jpg" alt="FRP products"/>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section id="about" class="section about-intro">
+      <div class="container split-section">
+        <div>
+          <p class="section-kicker">About Coroseal</p>
+          <h2>Reinforcing Customer Delight, Driving Excellence in Fibre Glass</h2>
+          <p>Coroseal is amongst the leading manufacturer and service provider in Fibre Reinforced Plastic products in South East Asia. Our engineers combine design, fabrication and project delivery to create reliable systems for demanding industrial environments.</p>
+          <a class="text-link" href="about-us.html">Discover our capabilities <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="about-stat-panel">
+          <strong>Built for demanding plants</strong>
+          <span>Design, fabrication and supply under one roof.</span>
+          <div class="stat-row"><b>150 m³</b><small>in-shop tank capacity</small></div>
+          <div class="stat-row"><b>3000 mm</b><small>pipe and duct diameter</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="industries" class="section industries-section">
+      <div class="container section-heading">
+        <p class="section-kicker">Industries We Serve</p>
+        <h2>Corrosion-resistant systems for critical operations</h2>
+        <p>From chemical processing to water treatment, our equipment is designed around the conditions your plant actually faces.</p>
+      </div>
+      <div class="container industries-grid">
+        <article class="industry-card"><img src="img/project/fume_exhaust_system/3500m3hr_01.jpg" alt="Chemical processing equipment"><div><h3>Chemical & Allied</h3><p>FRP equipment for corrosive chemical processing environments.</p></div></article>
+        <article class="industry-card"><img src="img/project/storage_tanks/20m3_saturated_tank_01.jpg" alt="Water treatment storage tank"><div><h3>Water & Waste Treatment</h3><p>Long-life tanks, piping and systems for clean water operations.</p></div></article>
+        <article class="industry-card featured"><img src="img/project/pipes_fittings/frp_piper_and_fitting_01.jpg" alt="Metal and mining process piping"><div><h3>Metal & Mining</h3><p>Reliable extraction and process equipment for challenging sites.</p></div></article>
+        <article class="industry-card"><img src="img/project/storage_tanks/frp_tanks_recovered_brian_tank_01.jpg" alt="Industrial power process vessel"><div><h3>Power & FGD</h3><p>Equipment for flue gas desulphurisation and power projects.</p></div></article>
       </div>
     </section>
 
